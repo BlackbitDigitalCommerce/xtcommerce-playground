@@ -1,0 +1,78 @@
+#############################################################################
+# IDE Project directories and files
+#############################################################################
+.idea
+atlassian-ide-plugin.xml
+.project
+.buildpath
+.settings
+
+#############################################################################
+# xt:Commerce directories and files
+#############################################################################
+# Cache directory
+/cache/*
+!/cache/index.html
+!/cache/.htaccess
+!/cache/.dummy
+
+# Export directory
+/export/*
+!/export/index.html
+!/export/.dummy
+
+# License directory
+/lic/*
+!/lic/.htaccess
+!/lic/.dummy
+
+# Media directory
+/media/*
+!/media/.gitignore
+
+# Plugin cache directory
+/plugin_cache/*
+!/plugin_cache/.htaccess
+!/plugin_cache/.dummy
+
+# Template cache directory
+/templates_c/*
+!/templates_c/index.html
+!/templates_c/.htaccess
+!/templates_c/.dummy
+
+# Log directory
+/xtLogs/*
+!/xtLogs/index.html
+!/xtLogs/.htaccess
+!/xtLogs/.dummy
+
+# More xt:Commerce directories
+xtInstaller*
+xtUpdater*
+xtMigration*
+xtWizard*
+
+/xtFramework/library/dompdf/lib/fonts/log*
+
+#############################################################################
+# Other directories and files which has to be excluded from Repository
+#############################################################################
+
+# Directories from server instance
+/stats
+/error
+
+# Magnalister
+/plugins/magnalister
+
+# Shopgate
+/plugins/xt_shopgate/shopgate_library/config/myconfig.php
+
+# RPC
+# BueroWare API
+/rpc
+
+node_modules
+bower_components
+.DS_Store

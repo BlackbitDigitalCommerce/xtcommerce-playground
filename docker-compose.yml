@@ -1,0 +1,44 @@
+version: '3'
+services:
+    php-apache:
+        container_name: $PHPCONTAINER
+        build:
+            context: ./.docker
+            args:
+                PHP_VERSION: $PHP_VERSION
+                PHP_VERSION_MAIN: $PHP_VERSION_MAIN
+        ports:
+            - 80:80
+        volumes:
+            - ./:/var/www/html
+        links:
+            - 'mariadb'
+
+    mariadb:
+        container_name: $DBCONTAINER
+        image: mariadb:$MARIADB_VERSION
+        ports:
+            - 3306:3306
+        volumes:
+            - mariadb:/var/lib/mysql
+            - .docker/dump/:/tmp/dump
+        environment:
+            TZ: "Europe/Berlin"
+            MYSQL_ALLOW_EMPTY_PASSWORD: "no"
+            MYSQL_ROOT_PASSWORD: "toor"
+            MYSQL_USER: 'docker'
+            MYSQL_PASSWORD: 'docker'
+            MYSQL_DATABASE: 'docker'
+
+    redis:
+        container_name: $REDISCONTAINER
+        image: redis:5.0.7-alpine
+        ports:
+            - 6379:6379
+        volumes:
+            - redis:/var/lib/redis
+        restart: always
+
+volumes:
+    mariadb:
+    redis:

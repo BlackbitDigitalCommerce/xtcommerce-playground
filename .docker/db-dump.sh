@@ -1,0 +1,1 @@
+docker exec -it $DBCONTAINER /bin/bash -c "/tmp/dump/db-imp.sh"

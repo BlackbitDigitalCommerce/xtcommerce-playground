@@ -10,6 +10,18 @@ This project creates three docker container:
 The container-names, php and mariaDB-version can be changed in `.env`.
 If the used ports are already used on your system, you can be changed them in `docker-compose.yml`.
 
+###Credentials
+xtCommerce Backend
+
+|User|Password|
+|---------|--------|
+|docker|docker|
+
+Database
+
+|Host|Database|User|Password|
+|-----|---------|------|------|
+|mariabd|docker|docker|docker|
 
 ###First steps:
 - Use `docker-compose build` to create the container
@@ -17,10 +29,11 @@ If the used ports are already used on your system, you can be changed them in `d
 - Use `./docker/db-dump.sh` to import the initial database-dump with example data
 - Open http://localhost/create_demo_lic.php to fetch a 30-day-trial-license
 
-
 ###Use the playgound
 - Just use `docker-compose up` to start and `ctrl-c` to stop
 - Alternatively, you can start a detached session with `docker-compose up -d` and stop with `docker-compose down` 
+- Frontend: http://localhost
+- Backend: http://localhost/xtAdmin
 
 ###Usefull links
 - Official user documentation (german only): https://xtcommerce.atlassian.net/wiki/spaces/MANUAL/overview

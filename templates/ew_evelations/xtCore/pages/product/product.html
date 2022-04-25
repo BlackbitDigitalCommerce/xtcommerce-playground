@@ -78,6 +78,9 @@
                                 {/if}
                             {/if}
                         </p>
+                        <p class="product-tax-shipping">
+                            {hook key=product_min_price_tpl pid=$product.products_id pprice=$product.products_price ptax=$product.products_tax_rate}
+                        </p>
                     {/if}
 
                     {if $products_master_flag == 1 OR $products_master_model != ''}
@@ -150,6 +153,9 @@
                                     {/if}
                                 {/if}
                             </p>
+                        <p class="product-tax-shipping">
+                            {hook key=product_min_price_tpl pid=$product.products_id pprice=$product.products_price  ptax=$product.products_tax_rate}
+                        </p>
                         {/if}
                         {if $products_weight > 0}
                             <hr />

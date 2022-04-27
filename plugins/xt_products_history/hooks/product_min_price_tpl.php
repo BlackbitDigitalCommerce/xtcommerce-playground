@@ -4,8 +4,9 @@ defined('_VALID_CALL') or die('Direct Access is not allowed.');
 
 global $db, $price;
 
-$price_min = $db->GetOne(
-    "
+if ($params['has_specials'] == true) {
+    $price_min = $db->GetOne(
+        "
         SELECT MIN(min_price) FROM (
             SELECT MIN(products_price)  min_price
                 FROM xt_plg_products_history
@@ -19,14 +20,15 @@ $price_min = $db->GetOne(
                 created_at BETWEEN created_at - INTERVAL ? DAY AND created_at
         ) t 
             ",
-    [
-        $params['pid'], XT_PRODUCTS_HISTORY_MIN_PRICE_PERIOD_DAYS,
-        $params['pid'], XT_PRODUCTS_HISTORY_MIN_PRICE_PERIOD_DAYS
-    ]
-);
+        [
+            $params['pid'], XT_PRODUCTS_HISTORY_MIN_PRICE_PERIOD_DAYS,
+            $params['pid'], XT_PRODUCTS_HISTORY_MIN_PRICE_PERIOD_DAYS
+        ]
+    );
 
-if ($price_min && $params['pprice'] && $params['pprice']['original_price_otax'] > $price_min) {
-    $price_with_tax = (float)$price_min + (float)$params['ptax'];
-    $price_with_tax = $price->_StyleFormat(abs($price_with_tax));
-    echo TEXT_PRODUCTS_HISTORY . " ". $price_with_tax;
+    if ($price_min && $params['pprice'] && $params['pprice']['original_price_otax'] > $price_min) {
+        $price_with_tax = (float)$price_min + (float)$params['ptax'];
+        $price_with_tax = $price->_StyleFormat(abs($price_with_tax));
+        echo TEXT_PRODUCTS_HISTORY . " ". $price_with_tax;
+    }
 }

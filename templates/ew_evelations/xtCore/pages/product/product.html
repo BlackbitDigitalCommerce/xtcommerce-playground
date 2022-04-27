@@ -79,7 +79,7 @@
                             {/if}
                         </p>
                         <p class="product-tax-shipping">
-                            {hook key=product_min_price_tpl pid=$product.products_id pprice=$product.products_price ptax=$product.products_tax_rate}
+                            {hook key=product_min_price_tpl has_specials=$flag_has_specials pid=$product.products_id pprice=$product.products_price ptax=$product.products_tax_rate}
                         </p>
                     {/if}
 
@@ -154,7 +154,7 @@
                                 {/if}
                             </p>
                         <p class="product-tax-shipping">
-                            {hook key=product_min_price_tpl pid=$product.products_id pprice=$product.products_price  ptax=$product.products_tax_rate}
+                            {hook key=product_min_price_tpl has_specials=$flag_has_specials pid=$product.products_id pprice=$product.products_price  ptax=$product.products_tax_rate}
                         </p>
                         {/if}
                         {if $products_weight > 0}

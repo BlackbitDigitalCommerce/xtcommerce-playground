@@ -1,4 +1,7 @@
 <?php
+
+defined('_VALID_CALL') or die('Direct Access is not allowed.');
+
 if ($set_type == 'edit') {
     $ms_data = [
         'xt_products_price_special_id' => $data['id'],

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xtcommerceplugin>
 
-    <code>xt_products_history</code>
+    <code>bb_products_history</code>
     <version>5.0.0</version>
     <type>products</type>
     
@@ -12,26 +12,33 @@
 
     <title>History of prices products and special prices</title>
 
-    <db_install><![CDATA[include _SRV_WEBROOT . _SRV_WEB_PLUGINS . 'xt_products_history/installer/install.php';]]></db_install>
-    <db_uninstall><![CDATA[include _SRV_WEBROOT . _SRV_WEB_PLUGINS . 'xt_products_history/installer/uninstall.php';]]></db_uninstall>
+    <db_install><![CDATA[include _SRV_WEBROOT . _SRV_WEB_PLUGINS . 'bb_products_history/installer/install.php';]]></db_install>
+    <db_uninstall><![CDATA[include _SRV_WEBROOT . _SRV_WEB_PLUGINS . 'bb_products_history/installer/uninstall.php';]]></db_uninstall>
 
     <plugin_code>
         <code>
             <hook>class.product.php:_set_perm</hook>
-            <phpcode><![CDATA[include _SRV_WEBROOT . _SRV_WEB_PLUGINS . 'xt_products_history/hooks/class.product.php_set_perm.php';]]></phpcode>
+            <phpcode><![CDATA[include _SRV_WEBROOT . _SRV_WEB_PLUGINS . 'bb_products_history/hooks/class.product.php_set_perm.php';]]></phpcode>
             <order>2</order>
             <active>1</active>
         </code>
         <code>
             <hook>plugin_special_products:_set_buttom</hook>
-            <phpcode><![CDATA[include _SRV_WEBROOT . _SRV_WEB_PLUGINS . 'xt_products_history/hooks/plugin_special_products_set_buttom.php';]]></phpcode>
+            <phpcode><![CDATA[include _SRV_WEBROOT . _SRV_WEB_PLUGINS . 'bb_products_history/hooks/plugin_special_products_set_buttom.php';]]></phpcode>
+            <order>1</order>
+            <active>1</active>
+        </code>
+
+        <code>
+            <hook>plugin_special_products:_unset_buttom</hook>
+            <phpcode><![CDATA[include _SRV_WEBROOT . _SRV_WEB_PLUGINS . 'bb_products_history/hooks/plugin_special_products_unset_buttom.php';]]></phpcode>
             <order>1</order>
             <active>1</active>
         </code>
 
         <code>
             <hook>product_min_price_tpl</hook>
-            <phpcode><![CDATA[include _SRV_WEBROOT . _SRV_WEB_PLUGINS . 'xt_products_history/hooks/product_min_price_tpl.php';]]></phpcode>
+            <phpcode><![CDATA[include _SRV_WEBROOT . _SRV_WEB_PLUGINS . 'bb_products_history/hooks/product_min_price_tpl.php';]]></phpcode>
             <order>1</order>
             <active>1</active>
         </code>

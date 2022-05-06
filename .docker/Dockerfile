@@ -22,6 +22,7 @@ RUN curl -fSL 'http://downloads3.ioncube.com/loader_downloads/ioncube_loaders_li
     && rm -Rf ioncube.tar.gz ioncube \
     && docker-php-ext-enable ioncube_loader_lin_${PHP_VERSION_MAIN}
 
+
 COPY vhost.conf /etc/apache2/sites-available/000-default.conf
 
 RUN a2enmod rewrite

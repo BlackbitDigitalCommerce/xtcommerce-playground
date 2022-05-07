@@ -11,8 +11,11 @@ services:
             - 80:80
         volumes:
             - ./:/var/www/html
+            - .docker/xdebug.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
         links:
             - 'mariadb'
+        environment:
+            PHP_IDE_CONFIG: "serverName=Magetwo"
 
     mariadb:
         container_name: $DBCONTAINER

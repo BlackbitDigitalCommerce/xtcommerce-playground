@@ -23,6 +23,8 @@ RUN curl -fSL 'http://downloads3.ioncube.com/loader_downloads/ioncube_loaders_li
     && docker-php-ext-enable ioncube_loader_lin_${PHP_VERSION_MAIN}
 
 
+RUN pecl install xdebug  && docker-php-ext-enable xdebug
+
 COPY vhost.conf /etc/apache2/sites-available/000-default.conf
 
 RUN a2enmod rewrite
